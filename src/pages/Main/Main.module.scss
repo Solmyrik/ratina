@@ -1,0 +1,58 @@
+@import '../../variables.scss';
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 100px;
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    gap: 60px;
+  }
+  @media (max-width: $mob) {
+    gap: 40px;
+  }
+  &__left {
+  }
+
+  &__title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    span {
+      color: $gold;
+    }
+    @media (max-width: $mob) {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__content {
+    font-size: 18px;
+    line-height: 140%;
+    @media (max-width: $mob) {
+      font-size: 16px;
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+        @media (max-width: $mob) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &__right {
+    text-align: right;
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+  }
+
+  &__image {
+  }
+}

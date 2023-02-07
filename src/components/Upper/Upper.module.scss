@@ -1,0 +1,41 @@
+@import '../../variables.scss';
+
+.upper {
+  margin-bottom: 70px;
+  &__title {
+    @include title;
+  }
+
+  &__img {
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 70px;
+    @media (max-width: $mob) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 30px;
+    }
+  }
+
+  &__description {
+    line-height: 140%;
+    font-weight: 1000;
+    color: $gold;
+    @media (max-width: $mob) {
+      font-size: 16px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 140%;
+    @media (max-width: $mob) {
+      font-size: 14px;
+    }
+  }
+}

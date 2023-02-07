@@ -1,0 +1,54 @@
+@import '../../variables.scss';
+
+.item {
+  cursor: pointer;
+  transition: transform 0.5s;
+  position: relative;
+  &:hover {
+    transform: translate(0px, -10px);
+  }
+  &__image {
+    height: 420px;
+    width: 100%;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      height: 420px;
+      border-radius: 40px;
+    }
+  }
+  &__text {
+    text-align: center;
+  }
+  &__name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    @media (max-width: $mob) {
+      font-size: 18px;
+    }
+  }
+  &__price {
+    font-size: 16px;
+    font-weight: 1000;
+    color: $gold;
+    @media (max-width: $mob) {
+      font-size: 14px;
+    }
+  }
+  &__favorite {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: all 0.2s;
+    &:hover {
+      color: red;
+      path {
+        color: red;
+      }
+      circle {
+        color: red;
+      }
+    }
+  }
+}

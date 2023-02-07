@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.menu {
+  margin-top: 10px;
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+  }
+  &__item {
+    font-size: 22px;
+    transition: color 0.3s;
+    &:hover {
+      color: $gold;
+    }
+  }
+}

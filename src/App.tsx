@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './pages/Header/Header';
+import { Routes, Route } from 'react-router-dom';
+import Main from './pages/Main/Main';
+import Footer from './pages/Footer/Footer';
+import Table from './pages/Table/Table';
+import Chair from './pages/Chair/Chair';
+import Favorite from './pages/Favorite/Favorite';
+import Tile from './pages/Tile/Tile';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/table" element={<Table />}></Route>
+          <Route path="/chair" element={<Chair />}></Route>
+          <Route path="/tile" element={<Tile />}></Route>
+          <Route path="/favorite" element={<Favorite />}></Route>
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,60 @@
+@import '../../variables.scss';
+
+.header {
+  margin-bottom: 80px;
+  padding-top: 20px;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: inline-block;
+  transition: color 0.3s;
+  p {
+    &:first-child {
+      font-size: 40px;
+      line-height: 100%;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+  &:hover {
+    color: $gold;
+  }
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.cart {
+  cursor: pointer;
+  &:hover {
+    svg {
+      color: $gold;
+      path {
+        color: $gold;
+      }
+      circle {
+        color: $gold;
+      }
+    }
+  }
+}
+.favorite {
+  cursor: pointer;
+  &:hover {
+    svg {
+      color: $gold;
+      path {
+        color: $gold;
+      }
+      circle {
+        color: $gold;
+      }
+    }
+  }
+}

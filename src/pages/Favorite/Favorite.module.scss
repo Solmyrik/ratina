@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+.title {
+  @include title;
+}
+.items {
+  @include cards-item;
+}

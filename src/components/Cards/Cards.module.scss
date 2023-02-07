@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.cards {
+  padding-top: 30px;
+  border-top: 1px solid $gold;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  &__items {
+    @include cards-item
+  }
+}

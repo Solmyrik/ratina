@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.input {
+  height: 39.5px;
+  width: 300px;
+
+  position: relative;
+  input {
+    padding: 5px 10px 5px 40px;
+    border: 2px solid $gold;
+    border-radius: 10px;
+    &:focus {
+      border: 2px solid $gold-hover;
+    }
+  }
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0%, -50%);
+}

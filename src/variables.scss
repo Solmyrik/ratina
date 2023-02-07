@@ -1,0 +1,37 @@
+// color
+
+$main: #232e2f;
+$white: #ffffff;
+$gold: #d3a76d;
+$gold-hover: #e7a958;
+$black: #111111;
+
+// resolution
+$tablet: 991.98px;
+$mob: 767.98px;
+$mobSmall: 479.98px;
+
+//mixines
+@mixin title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: $gold;
+  @media (max-width: $mob) {
+    font-size: 26px;
+  }
+}
+
+@mixin cards-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 30px;
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+  @media (max-width: $mob) {
+    grid-template-columns: 1fr;
+  }
+}
