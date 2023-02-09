@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { onAddItem } from '../../redux/slices/favoriteSlice';
 import type { RootState, AppDispatch } from '../../redux/store';
 
@@ -25,13 +26,14 @@ const Item: React.FC<IItem> = ({ name, price, image, id, isFavorite }) => {
     }
   }, [favorite, favoriteId]);
 
-  const onAddFavoriteId = () => {
+  const onAddFavoriteId = (e: any) => {
+    e.preventDefault();
     // @ts-ignore
     dispatch(onAddItem({ name, price, image, id }));
     setFavorite(!favorite);
   };
   return (
-    <div className={styles.item}>
+    <Link to={`/product/${id}`} className={styles.item}>
       <div className={styles.item__image}>
         <img src={image} alt="" />
       </div>
@@ -40,12 +42,12 @@ const Item: React.FC<IItem> = ({ name, price, image, id, isFavorite }) => {
         <p className={styles.item__price}>{price} ₽</p>
       </div>
       <AiOutlineHeart
-        onClick={onAddFavoriteId}
+        onClick={(e) => onAddFavoriteId(e)}
         className={styles.item__favorite}
         size={35}
         color={favorite ? 'red' : '#d3a76d'}
       />
-    </div>
+    </Link>
   );
 };
 

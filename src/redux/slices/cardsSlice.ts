@@ -7,6 +7,7 @@ interface ICard {
   price: number;
   image: string;
   id: number;
+  description: string;
 }
 
 export interface CardsState {
@@ -26,24 +27,36 @@ export const fatchCard = createAsyncThunk('card/fatchCard', async (current: any)
   return data;
 });
 
+export const fatchCardId = createAsyncThunk('product/fatchCardId', async (id: any) => {
+  const { data } = await axios.get(`https://63d685b2e60d5743697a392f.mockapi.io/Items?&id=${id}`);
+
+  return data;
+});
+
 export const cardsSlice = createSlice({
   name: 'card',
   initialState,
   reducers: {
-    onAddItem: (state, actions: PayloadAction<number>) => {
-      console.log(state.items);
-    },
+    onAddItem: (state, actions: PayloadAction<number>) => {},
   },
   extraReducers: (builder) => {
     builder.addCase(fatchCard.pending, (state, action) => {
       state.items = [];
-      console.log(state.items);
     });
     builder.addCase(fatchCard.fulfilled, (state, action) => {
       state.items = action.payload;
       console.log(state.items);
     });
     builder.addCase(fatchCard.rejected, (state, action) => {
+      state.items = [];
+    });
+    builder.addCase(fatchCardId.pending, (state, action) => {
+      state.items = [];
+    });
+    builder.addCase(fatchCardId.fulfilled, (state, action) => {
+      state.items = action.payload;
+    });
+    builder.addCase(fatchCardId.rejected, (state, action) => {
       state.items = [];
     });
   },

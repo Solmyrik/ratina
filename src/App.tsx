@@ -7,6 +7,7 @@ import Table from './pages/Table/Table';
 import Chair from './pages/Chair/Chair';
 import Favorite from './pages/Favorite/Favorite';
 import Tile from './pages/Tile/Tile';
+import Product from './pages/Product/Product';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +19,8 @@ const App: React.FC = () => {
           <Route path="/table" element={<Table />}></Route>
           <Route path="/chair" element={<Chair />}></Route>
           <Route path="/tile" element={<Tile />}></Route>
-          <Route path="/favorite" element={<Favorite />}></Route>
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </main>
       <Footer />

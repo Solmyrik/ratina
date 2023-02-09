@@ -7,9 +7,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './Cards.module.scss';
 import { fatchCard } from '../../redux/slices/cardsSlice';
+import Skeleton from '../Skeleton/Skeleton';
 
 interface ICards {
   type: string;
+}
+
+interface IOptions {
+  value?: string;
+  label?: string;
 }
 
 const options = [
@@ -82,7 +88,11 @@ const Cards: React.FC<ICards> = ({ type }) => {
             ))}
         </div>
       ) : (
-        <p>Нет элементов</p>
+        <div className={styles.cards__items}>
+          {[1, 2, 3].map((e) => (
+            <Skeleton />
+          ))}
+        </div>
       )}
     </div>
   );
