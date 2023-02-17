@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { fatchCardId } from '../../redux/slices/cardsSlice';
 
 import styles from './Product.module.scss';
+import { onAddItem } from '../../redux/slices/cartSlice';
 
 const Product: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,11 +20,24 @@ const Product: React.FC = () => {
   const decrement = () => {
     if (value > 0) {
       setValue((value) => value - 1);
+      onChangeProduct(value - 1);
     }
   };
 
   const increment = () => {
     setValue((value) => value + 1);
+    onChangeProduct(value + 1);
+  };
+
+  const onChangeProduct = (value: number) => {
+    const obj = {
+      name: items[0].name,
+      price: items[0].price,
+      image: items[0].image,
+      id: items[0].id,
+      quantity: value,
+    };
+    dispatch(onAddItem(obj));
   };
 
   return (

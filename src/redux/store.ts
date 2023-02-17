@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import cardsSlice from './slices/cardsSlice';
 import favoriteSlice from './slices/favoriteSlice';
 import { searchSlice } from './slices/searchSlice';
+import { cartSlice } from './slices/cartSlice';
 
 export const store = configureStore({
   reducer: {
     search: searchSlice.reducer,
     favorite: favoriteSlice,
     card: cardsSlice,
+    cart: cartSlice.reducer,
   },
 });
 
