@@ -11,10 +11,12 @@ type ICart = {
 
 export interface CartState {
   items: ICart[];
+  indexes: number[];
 }
 
 const initialState: CartState = {
   items: [],
+  indexes: [],
 };
 
 export const cartSlice = createSlice({
@@ -22,7 +24,31 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     onAddItem: (state, actions: PayloadAction<ICart>) => {
-      console.log(actions.payload);
+      if (!state.indexes.includes(actions.payload.id)) {
+        state.indexes = [...state.indexes, actions.payload.id];
+        state.items = [...state.items, actions.payload];
+      } else {
+        if (actions.payload.quantity > 0) {
+          state.items = state.items.map((e) => {
+            if (e.id === actions.payload.id) {
+              e.quantity = actions.payload.quantity;
+              return e;
+            } else {
+              return e;
+            }
+          });
+        } else {
+          let index = state.indexes.indexOf(actions.payload.id);
+          state.items = state.items.filter((e) => e.id !== actions.payload.id);
+          state.indexes.splice(index, 1);
+        }
+      }
+
+      // if(index) {
+      //   state.items =  state.items.map()
+      // }
+      // state.items = [...state.items, actions.payload];
+      // console.log(state.items, index);
     },
   },
 });
