@@ -28,34 +28,36 @@ const Product: React.FC = () => {
 
   return (
     <div>
-      {items.map((e) => {
-        return (
-          <div className={styles.product}>
-            <div className={styles.right}>
-              <img src={`${window.location.origin}/${e.image}`} alt={e.name} />
+      {items.map((e, i) => {
+        if (i === 0) {
+          return (
+            <div className={styles.product}>
+              <div className={styles.right}>
+                <img src={`${window.location.origin}/${e.image}`} alt={e.name} />
+              </div>
+              <div className={styles.left}>
+                <h2 className={styles.title}>{e.name}</h2>
+                <div className={styles.name}>Количество в корзине:</div>
+                <div className={styles.count}>
+                  <button onClick={decrement} className={styles.button}>
+                    -
+                  </button>
+                  <div className={styles.value}>{value}</div>
+                  <button onClick={increment} className={styles.button}>
+                    +
+                  </button>
+                </div>
+                <div className={styles.price}>
+                  Стоимость: <span>{e.price} ₽</span>
+                </div>
+                <div className={styles.description}>
+                  <div>Описание:</div>
+                  <p>{e.description}</p>
+                </div>
+              </div>
             </div>
-            <div className={styles.left}>
-              <h2 className={styles.title}>{e.name}</h2>
-              <div className={styles.name}>Количество в корзине:</div>
-              <div className={styles.count}>
-                <button onClick={decrement} className={styles.button}>
-                  -
-                </button>
-                <div className={styles.value}>{value}</div>
-                <button onClick={increment} className={styles.button}>
-                  +
-                </button>
-              </div>
-              <div className={styles.price}>
-                Стоимость: <span>{e.price} ₽</span>
-              </div>
-              <div className={styles.description}>
-                <div>Описание:</div>
-                <p>{e.description}</p>
-              </div>
-            </div>
-          </div>
-        );
+          );
+        }
       })}
     </div>
   );
