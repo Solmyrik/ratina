@@ -3,12 +3,18 @@ import styles from './Cart.module.scss';
 import type { RootState, AppDispatch } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiDelete } from 'react-icons/ti';
+import { allDeleteItems } from '../../redux/slices/cartSlice';
 
 const Cart: FC = () => {
+  const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.cart.items);
   const [value, setValue] = useState(0);
+  const [allPrice, setAllPrice] = useState(0);
   const decrement = () => {};
   const increment = () => {};
+  const allDelete = () => {
+    dispatch(allDeleteItems());
+  };
   return (
     <section>
       <h1 className={styles.title}>Корзина</h1>
@@ -33,11 +39,22 @@ const Cart: FC = () => {
                 </button>
               </div>
               <div className={styles.cart__price}>
-                Стоимость за единицу: <span>{e.price}</span>{' '}
+                Стоимость за единицу: <span>{e.price} ₽</span>
               </div>
             </div>
           );
         })}
+      </div>
+      <div className={styles.cart__bar}>
+        <div className={styles.cart__top}>
+          <div className={styles.cart__alldelete}>Очистить корзину</div>
+          <div className={styles.cart__allprice}>Сумма корзины: {allPrice} ₽</div>
+        </div>
+        <div className={styles.cart__bottom}>
+          <button onClick={allDelete} className={styles.cart__button}>
+            Заказать
+          </button>
+        </div>
       </div>
     </section>
   );

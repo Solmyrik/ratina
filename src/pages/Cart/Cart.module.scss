@@ -4,6 +4,9 @@
   @include title;
 }
 .cart {
+  &__items {
+    margin-bottom: 50px;
+  }
   &__item {
     display: flex;
     gap: 50px;
@@ -72,6 +75,38 @@
     span {
       color: $gold;
       font-weight: 600;
+    }
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__alldelete {
+    font-weight: 900;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: $gold;
+    }
+  }
+  &__allprice {
+    font-size: 22px;
+  }
+  &__bottom {
+    text-align: center;
+  }
+  &__button {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 13px 20px;
+    border: 2px solid $gold;
+    border-radius: 30px;
+    transition: all 0.3s;
+    &:hover {
+      background-color: $gold;
     }
   }
 }

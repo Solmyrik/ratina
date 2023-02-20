@@ -50,9 +50,12 @@ export const cartSlice = createSlice({
       // state.items = [...state.items, actions.payload];
       // console.log(state.items, index);
     },
+    allDeleteItems: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { onAddItem } = cartSlice.actions;
+export const { onAddItem, allDeleteItems } = cartSlice.actions;
 
 export default cartSlice.reducer;
