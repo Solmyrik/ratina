@@ -12,8 +12,13 @@
     border-top: 1px solid $gold;
     border-bottom: 1px solid $gold;
     @media (max-width: 1170px) {
+      gap: 20px;
+    }
+    @media (max-width: 935px) {
       flex-wrap: wrap;
       gap: 0;
+      row-gap: 20px;
+      flex-direction: column;
     }
   }
   &__delete {
@@ -31,7 +36,7 @@
       }
     }
     @media (max-width: 1170px) {
-      flex: 0 1 50%;
+      // flex: 0 1 50%;
     }
   }
   &__image {
@@ -42,13 +47,23 @@
       height: 100px;
     }
     @media (max-width: 1170px) {
-      flex: 0 1 50%;
+      // flex: 0 1 50%;
+    }
+    @media (max-width: 935px) {
+      // flex: 0 1 50%;
     }
   }
   &__name {
     font-size: 20px;
     font-weight: 600;
     flex: 0 1 400px;
+    @media (max-width: 1170px) {
+      font-size: 15px;
+      flex: 0 1 300px;
+    }
+    @media (max-width: 935px) {
+      flex: 0 1 100%;
+    }
   }
   &__price {
     display: flex;
