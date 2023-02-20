@@ -19,7 +19,9 @@ const Header: React.FC = () => {
             <AiOutlineHeart size={35} color="white" />
           </Link>
           <div className={styles.cart}>
-            <FiShoppingCart size={35} color="white" />
+            <Link to="/cart">
+              <FiShoppingCart size={35} color="white" />
+            </Link>
           </div>
         </div>
       </div>

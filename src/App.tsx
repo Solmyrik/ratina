@@ -8,6 +8,7 @@ import Chair from './pages/Chair/Chair';
 import Favorite from './pages/Favorite/Favorite';
 import Tile from './pages/Tile/Tile';
 import Product from './pages/Product/Product';
+import Cart from './pages/Cart/Cart';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="/tile" element={<Tile />}></Route>
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
       <Footer />

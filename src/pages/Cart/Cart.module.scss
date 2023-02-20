@@ -1,0 +1,82 @@
+@import '../../variables.scss';
+
+.title {
+  @include title;
+}
+.cart {
+  &__item {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding: 15px 0px;
+    border-top: 1px solid $gold;
+    border-bottom: 1px solid $gold;
+    @media (max-width: 1170px) {
+      flex-wrap: wrap;
+      gap: 0;
+    }
+  }
+  &__delete {
+    cursor: pointer;
+    svg {
+      path {
+        transition: all 0.3s;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          fill: $gold;
+        }
+      }
+    }
+    @media (max-width: 1170px) {
+      flex: 0 1 50%;
+    }
+  }
+  &__image {
+    width: 100px;
+    height: 100px;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    @media (max-width: 1170px) {
+      flex: 0 1 50%;
+    }
+  }
+  &__name {
+    font-size: 20px;
+    font-weight: 600;
+    flex: 0 1 400px;
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    span {
+      color: $gold;
+      font-weight: 600;
+    }
+  }
+}
+.count {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.button {
+  width: 35px;
+  height: 35px;
+  border: 2px solid $gold;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: $gold-hover;
+  }
+  &:active {
+    transform: translate(0, 2px);
+  }
+}
