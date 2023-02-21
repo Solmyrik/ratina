@@ -109,6 +109,11 @@
       background-color: $gold;
     }
   }
+  &__nothing {
+    padding: 50px 0px 300px;
+    text-align: center;
+    font-size: 24px;
+  }
 }
 .count {
   display: flex;

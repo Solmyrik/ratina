@@ -52,10 +52,15 @@ export const cartSlice = createSlice({
     },
     allDeleteItems: (state) => {
       state.items = [];
+      state.indexes = [];
+    },
+    deleteItem: (state, actions: PayloadAction<number>) => {
+      state.items = state.items.filter((e) => e.id !== actions.payload);
+      state.indexes = state.indexes.filter((e) => e !== actions.payload);
     },
   },
 });
 
-export const { onAddItem, allDeleteItems } = cartSlice.actions;
+export const { onAddItem, allDeleteItems, deleteItem } = cartSlice.actions;
 
 export default cartSlice.reducer;
