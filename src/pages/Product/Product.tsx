@@ -11,11 +11,27 @@ const Product: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { id } = useParams();
   const items = useSelector((state: RootState) => state.card.items);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
     dispatch(fatchCardId(id));
   }, []);
+
+  useEffect(() => {
+    let current = 0;
+    cartItems.forEach((e) => {
+      if (e.id) {
+        let currentId = e.id;
+        if (Number(id) === currentId) {
+          current = e.quantity;
+        }
+      }
+    });
+    if (current !== undefined) {
+      setValue(current);
+    }
+  }, [cartItems]);
 
   const decrement = () => {
     if (value > 0) {

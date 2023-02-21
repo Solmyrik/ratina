@@ -3,15 +3,30 @@ import styles from './Cart.module.scss';
 import type { RootState, AppDispatch } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { TiDelete } from 'react-icons/ti';
-import { allDeleteItems, deleteItem } from '../../redux/slices/cartSlice';
+import {
+  addQuantity,
+  allDeleteItems,
+  deleteItem,
+  removeQuanity,
+} from '../../redux/slices/cartSlice';
 
 const Cart: FC = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.cart.items);
   const [value, setValue] = useState(0);
   const [allPrice, setAllPrice] = useState(0);
-  const decrement = () => {};
-  const increment = () => {};
+  const decrement = (id: number, q: number) => {
+    if (q > 1) {
+      dispatch(removeQuanity(id));
+    } else {
+      dispatch(deleteItem(id));
+    }
+  };
+
+  const increment = (id: number) => {
+    dispatch(addQuantity(id));
+  };
+
   const allDelete = () => {
     dispatch(allDeleteItems());
   };
@@ -45,11 +60,11 @@ const Cart: FC = () => {
                 </div>
                 <div className={styles.cart__name}>{e.name}</div>
                 <div className={styles.count}>
-                  <button onClick={decrement} className={styles.button}>
+                  <button onClick={() => decrement(e.id, e.quantity)} className={styles.button}>
                     -
                   </button>
                   <div className={styles.value}>{e.quantity}</div>
-                  <button onClick={increment} className={styles.button}>
+                  <button onClick={() => increment(e.id)} className={styles.button}>
                     +
                   </button>
                 </div>

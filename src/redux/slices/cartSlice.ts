@@ -58,9 +58,30 @@ export const cartSlice = createSlice({
       state.items = state.items.filter((e) => e.id !== actions.payload);
       state.indexes = state.indexes.filter((e) => e !== actions.payload);
     },
+    addQuantity: (state, actions: PayloadAction<number>) => {
+      state.items = state.items.map((e) => {
+        if (e.id === actions.payload) {
+          e.quantity += 1;
+          return e;
+        } else {
+          return e;
+        }
+      });
+    },
+    removeQuanity: (state, actions: PayloadAction<number>) => {
+      state.items = state.items.map((e) => {
+        if (e.id === actions.payload) {
+          e.quantity -= 1;
+          return e;
+        } else {
+          return e;
+        }
+      });
+    },
   },
 });
 
-export const { onAddItem, allDeleteItems, deleteItem } = cartSlice.actions;
+export const { onAddItem, allDeleteItems, deleteItem, addQuantity, removeQuanity } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
