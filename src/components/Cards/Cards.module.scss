@@ -8,8 +8,12 @@
     justify-content: space-between;
     width: 100%;
     margin-bottom: 40px;
+    @media (max-width: $mob) {
+      flex-direction: column;
+      gap: 15px;
+    }
   }
   &__items {
-    @include cards-item
+    @include cards-item;
   }
 }

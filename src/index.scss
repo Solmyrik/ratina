@@ -162,16 +162,25 @@ body {
     border-radius: 10px !important;
     background-color: $main !important;
     color: $white !important;
+    @media (max-width: $mob) {
+      width: 100% !important;
+    }
   }
   &__menu {
     cursor: pointer !important;
     width: 300px !important;
     background-color: $main !important;
     color: $white !important;
+    @media (max-width: $mob) {
+      width: 100% !important;
+    }
   }
   &__input-container {
     width: 300px !important;
     color: $white !important;
+    @media (max-width: $mob) {
+      width: 100% !important;
+    }
   }
   &__single-value {
     color: $white !important;

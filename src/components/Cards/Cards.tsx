@@ -89,8 +89,8 @@ const Cards: React.FC<ICards> = ({ type }) => {
         </div>
       ) : (
         <div className={styles.cards__items}>
-          {[1, 2, 3].map((e) => (
-            <Skeleton />
+          {[1, 2, 3].map((e, i) => (
+            <Skeleton key={i} />
           ))}
         </div>
       )}

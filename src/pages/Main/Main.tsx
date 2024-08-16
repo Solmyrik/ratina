@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Main.module.scss';
+import Paragraph from '../../components/Common/Paragraph/Paragraph';
 
 const Main: React.FC = () => {
   return (
@@ -10,15 +11,15 @@ const Main: React.FC = () => {
           Магазин <span>Ratina</span>, дом итальянской керамики
         </h1>
         <div className={styles.main__content}>
-          <p>
+          <Paragraph>
             Ratina Shop — это электронная коммерция Ratina Group Srl SB, проект, основанный на
             основополагающих ценностях итальянской керамики: ноу-хау, итальянский вкус, технологии.
-          </p>
-          <p>
+          </Paragraph>
+          <Paragraph>
             Мы создаем плитку из керамогранита для внутренних и наружных пространств, для
             архитектурных и частных проектов, предлагая широкий ассортимент продукции, стилей и
             дизайнов.
-          </p>
+          </Paragraph>
         </div>
       </div>
       <div className={styles.main__right}>

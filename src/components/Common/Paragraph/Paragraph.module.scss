@@ -1,0 +1,9 @@
+@import '../../../variables.scss';
+
+.paragraph {
+  font-size: 18px;
+  line-height: 140%;
+  @media (max-width: $mob) {
+    font-size: 16px;
+  }
+}

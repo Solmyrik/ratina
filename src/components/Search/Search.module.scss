@@ -5,10 +5,16 @@
   width: 300px;
 
   position: relative;
+
+  @media (max-width: $mob) {
+    width: 100%;
+  }
+
   input {
     padding: 5px 10px 5px 40px;
     border: 2px solid $gold;
     border-radius: 10px;
+    width: 100%;
     &:focus {
       border: 2px solid $gold-hover;
     }
